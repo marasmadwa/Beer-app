@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAAA,KACE,YACA,aACA,sBAAuB,CAExB","file":"main.css","sourcesContent":[".elo{\r\n  width: 100px;\r\n  height: 100px;\r\n  background-color: black;\r\n\r\n}"]}
