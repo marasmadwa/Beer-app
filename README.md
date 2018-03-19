@@ -13,4 +13,4 @@ and run App by typing:
 `npm start`
 
 
-## The App will be read soon! :)
+## The App will be ready soon! :)
