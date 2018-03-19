@@ -1,10 +1,15 @@
 import React from 'react';
+import BeerGuru from './js/BeerGuru.js'
 
 
 export default class App extends React.Component {
-  render() {
-    return (
-     <div className="app">The app will be ready soon :)</div>
-    );
-  }
+    render() {
+        return (
+            <section className='mainLayout'>
+                <div className='container'>
+                    <BeerGuru/>
+                </div>
+            </section>
+        );
+    }
 }
