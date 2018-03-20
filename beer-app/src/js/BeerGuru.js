@@ -4,12 +4,12 @@ import React from 'react';
 class Beers extends React.Component {
     render() {
         return (
-            <li className='beerType'>
-                {this.props.data.name}
+            <div className='col col-1-3'>
                 <div>
                     <img className='beerImage' src={this.props.data.image_url}/>
                 </div>
-            </li>
+                {this.props.data.name}
+            </div>
         )
     }
 }
@@ -45,11 +45,11 @@ export default class BeerGuru extends React.Component {
         return (
             <div className='beerBox'>
                 <div className='beerGuruTitle'>
-                    <h1>BEERGURU</h1>
+                    <h1><span className='beerWord'>BEER</span><span className='guruWord'>GURU</span></h1>
                 </div>
-                <ul className='beerList'>
+                <div className='row'>
                     {beers}
-                </ul>
+                </div>
             </div>
 
         )

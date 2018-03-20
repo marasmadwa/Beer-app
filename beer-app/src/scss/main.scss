@@ -1,18 +1,4 @@
-//-----beerBox------------
-
-.beerList {
-  width: 1000px;
-  height: auto;
-  columns: 2;
-  list-style: none;
-  display: inline-block;
-  .beerType {
-    margin-bottom: 50px;
-    .beerImage {
-      height: auto;
-      width: auto;
-      max-width: 300px;
-      max-height: 300px;
-    }
-  }
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "_grid.scss";
+@import "layoutConfig.scss";
+@import "_beerBox.scss";
