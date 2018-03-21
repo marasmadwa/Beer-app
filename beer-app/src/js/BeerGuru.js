@@ -1,4 +1,6 @@
 import React from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
+import BeerDescription from './BeerDescription.js'
 
 
 class Beers extends React.Component {
@@ -8,7 +10,8 @@ class Beers extends React.Component {
                 <div>
                     <img className='beerImage' src={this.props.data.image_url}/>
                 </div>
-                {this.props.data.name}
+                <p className='beerName'> {this.props.data.name}</p>
+                <p className='beerTagline'> {this.props.data.tagline}</p>
             </div>
         )
     }
@@ -19,11 +22,13 @@ export default class BeerGuru extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            beers: []
+            beers: [],
+            loadMore: this.props.loadMore,
+            // render: ''
         };
         fetch(`https://api.punkapi.com/v2/beers`)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 if (response.ok) {
                     return response.json();
                 } else {
@@ -38,17 +43,36 @@ export default class BeerGuru extends React.Component {
             });
     }
 
+    // handleBeerClick = () => {
+    //         this.setState({
+    //             render: BeerDescription
+    //         })
+    // };
+
+
     render() {
         const beers = this.state.beers.map(beer => {
-            return <Beers key={beer.id} data={beer}/>
+            return <Beers key={beer.id} data={beer} onClick={this.handleBeerClick}/>
         });
+
+        let beersList = beers.slice(0,20);
+
         return (
             <div className='beerBox'>
                 <div className='beerGuruTitle'>
                     <h1><span className='beerWord'>BEER</span><span className='guruWord'>GURU</span></h1>
                 </div>
                 <div className='row'>
-                    {beers}
+                    <InfiniteScroll
+                        pageStart={0}
+                        loadMore={beers.slice(20,25)}
+                        hasMore={true || false}
+                        loader={<div className="loader" key={0}><span className='loadWord'> Load</span><span className='ingWord'>ing</span><div className='spinner'>.</div></div>}
+                        useWindow={false}
+                    >
+                        {beersList}
+                    </InfiniteScroll>
+                    {/*<BeerDescription description = {this.state.render}/>*/}
                 </div>
             </div>
 
