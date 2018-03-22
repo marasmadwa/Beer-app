@@ -28,6 +28,12 @@
       max-width: 300px;
       max-height: 300px;
     }
+    .basicInfo{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 .col-1-3:hover{
