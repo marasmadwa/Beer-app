@@ -5,24 +5,32 @@
   flex-direction: row;
   border-radius: 20px;
   padding: 20px;
+  overflow: auto;
 
   width: 60%;
   height: auto;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   position: fixed;
   top: 20%;
   left: 20%;
   z-index: 100;
   .beerName{
-    margin-top: 20px;
     font-size: 30px;
   }
   .beerTagline{
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 20px;
   }
   .extracts{
-    margin-top: 20px;
+    margin-top: 10px;
+    span{
+      color: #444444;
+      font-weight: bold;
+      p{
+        color: #ffcc00;
+        display: inline;
+      }
+    }
   }
   .beerImage {
     height: auto;
@@ -32,47 +40,46 @@
   }
   .beerId {
     position: relative;
+    top: 30px;
     margin-left: 50px;
+    margin-top: 20px;
     height: auto;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-  }
-  .description {
-    width: 70%;
-    margin-top: 20px;
-    font-size: 20px;
+    .description {
+      width: 90%;
+      margin-top: 20px;
+      font-size: 20px;
+    }
   }
   .closeBtn {
+    width: 100px;
+    height: 50px;
+    transition: 0.5s all;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    background: rgba(89, 89, 89, .8);
+    outline: none;
+    color: #ffcc00;
     margin-top: 10px;
     margin-bottom: 20px;
   }
 }
 
-.beerId .beerTagline:after {
+.beerId .beerName:after {
   content: '';
-  border: 3px solid black;
+  border: 3px solid #ffcc00;
   position: absolute;
-  top: 90px;
+  top: 30px;
   left: 0;
   width: 100px;
-  color: #ffcc00;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.closeBtn{
-  width: 100px;
-  height: 50px;
-  transition: 0.5s all;
-  cursor: pointer;
-  border-radius: 10px;
-  border: none;
-  font-family: "Bangers", Arial, sans-serif;
-  font-size: 20px;
-  background: rgba(89, 89, 89, .8);
-  outline: none;
-  color: #ffcc00;
-}
 .closeBtn:hover {
   font-size: 25px;
   background: #ffcc00;

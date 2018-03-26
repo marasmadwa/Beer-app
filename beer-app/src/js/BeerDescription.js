@@ -9,10 +9,10 @@ export default class BeerDescription extends React.Component {
                     <p className='beerName'> {this.props.name}</p>
                     <p className='beerTagline'> {this.props.tagline}</p>
                     <div className='extracts'>
-                        <span className='ibu'>IBU: {this.props.ibu} </span>
-                        <span className='abv'>ABV: {this.props.abv} </span>
-                        <span className='ebc'>EBC: {this.props.ebc} </span>
-                        <span className='ph'>Ph: {this.props.ph} </span>
+                        <span>IBU: <p>{this.props.ibu}</p> </span>
+                        <span>ABV: <p>{this.props.abv}</p> </span>
+                        <span>EBC: <p>{this.props.ebc}</p> </span>
+                        <span>Ph: <p>{this.props.ph}</p> </span>
                     </div>
                     <span className="description">{this.props.description}</span>
                     <button className='closeBtn' onClick={this.props.show}>Close</button>

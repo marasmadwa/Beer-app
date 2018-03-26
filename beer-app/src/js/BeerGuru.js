@@ -25,7 +25,6 @@ class Beers extends React.Component {
         }
     };
 
-
     render() {
         return (
             <div>
@@ -35,7 +34,8 @@ class Beers extends React.Component {
                 </div>
                 <BeerDescription show={this.showBeerDescription} isOpen={this.state.open}
                                  description={this.props.data.description} img={this.props.data.image_url}
-                                 name={this.props.data.name} tagline={this.props.data.tagline} ibu = {this.props.data.ibu} abv = {this.props.data.abv} ebc = {this.props.data.ebc} ph = {this.props.data.ph}/>
+                                 name={this.props.data.name} tagline={this.props.data.tagline} ibu={this.props.data.ibu}
+                                 abv={this.props.data.abv} ebc={this.props.data.ebc} ph={this.props.data.ph}/>
             </div>
         )
     }
@@ -60,7 +60,7 @@ export default class BeerGuru extends React.Component {
                 }
             })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 this.setState({
                     beers: data
                 })
@@ -73,27 +73,15 @@ export default class BeerGuru extends React.Component {
             return <Beers key={beer.id} data={beer}/>
         });
 
-        let beersList = beers.slice(0, 20);
-
         return (
             <div className='beerBox'>
                 <div className='beerGuruTitle'>
                     <h1><span className='beerWord'>BEER</span><span className='guruWord'>GURU</span></h1>
                 </div>
                 <div className='row'>
-                    <InfiniteScroll
-                        pageStart={0}
-                        loadMore={beers.slice(20, 25)}
-                        hasMore={true || false}
-                        loader={<div className="loader" key={0}><span className='loadWord'> Load</span><span
-                            className='ingWord'>ing</span>
-                            <div className='spinner'>.</div>
-                        </div>}
-                        useWindow={false}
-                    >
-                        {beersList}
-                    </InfiniteScroll>
+                    {beers}
                 </div>
+                <div className='loader'>Loading <span className='spinner'>.</span> </div>
             </div>
 
         )
