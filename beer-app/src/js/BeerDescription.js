@@ -15,6 +15,13 @@ export default class BeerDescription extends React.Component {
                         <span>Ph: <p>{this.props.ph}</p> </span>
                     </div>
                     <span className="description">{this.props.description}</span>
+                    <span className='foodPairing'>&#10003; Best served with:
+                        <ul className='foodPairingList'>
+                            <li><p>&#127866; {this.props.food_pairing[0]}</p></li>
+                            <li><p>&#127866; {this.props.food_pairing[1]}</p></li>
+                            <li><p>&#127866; {this.props.food_pairing[2]}</p></li>
+                            </ul>
+                    </span>
                     <button className='closeBtn' onClick={this.props.show}>Close</button>
                 </div>
             </div>
