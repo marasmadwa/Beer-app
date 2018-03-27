@@ -1,7 +1,7 @@
 import React from 'react';
-import InfiniteScroll from 'react-infinite-scroller';
 import BeerBasicInfo from './BeerBasicInfo.js';
 import BeerDescription from './BeerDescription.js';
+// import InfiniteScroll from 'react-infinite-scroller';
 
 
 class Beers extends React.Component {
@@ -9,14 +9,13 @@ class Beers extends React.Component {
         super(props);
         this.state = {
             open: false,
-            hide: true
-        }
+        };
     }
 
     showBeerDescription = () => {
         if (this.state.open === false) {
             this.setState({
-                open: true
+                open: true,
             })
         } else {
             this.setState({
@@ -24,6 +23,7 @@ class Beers extends React.Component {
             })
         }
     };
+
 
     render() {
         return (
@@ -34,7 +34,7 @@ class Beers extends React.Component {
                                  description={this.props.data.description} img={this.props.data.image_url}
                                  name={this.props.data.name} tagline={this.props.data.tagline} ibu={this.props.data.ibu}
                                  abv={this.props.data.abv} ebc={this.props.data.ebc} ph={this.props.data.ph}
-                                 food_pairing={this.props.data.food_pairing} beers = {this.state.beers}/>
+                                 food_pairing={this.props.data.food_pairing}/>
             </div>
 
         )
@@ -47,6 +47,8 @@ export default class BeerGuru extends React.Component {
         super(props);
         this.state = {
             beers: [],
+            activePage: 1,
+            showItems: 20
         };
 
         fetch(`https://api.punkapi.com/v2/beers`)
@@ -59,20 +61,26 @@ export default class BeerGuru extends React.Component {
                 }
             })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 this.setState({
                     beers: data
                 })
             });
     }
 
+    handleShowMore = () => {
+        this.setState({
+            showItems: this.state.showItems >= this.state.beers.length ?
+                this.state.showItems : this.state.showItems + 1
+        })
+    };
 
     render() {
-        const beers = this.state.beers.map(beer => {
+
+        const beers = this.state.beers.slice(0, this.state.showItems).map
+        (beer => {
             return <Beers key={beer.id} data={beer}/>
         });
-
-
 
         return (
             <div className='beerBox'>
@@ -80,11 +88,20 @@ export default class BeerGuru extends React.Component {
                     <h1><span className='beerWord'>BEER</span><span className='guruWord'>GURU</span></h1>
                 </div>
                 <div className='row'>
+                    {/*<InfiniteScroll*/}
+                        {/*pageStart={0}*/}
+                        {/*loadMore={this.handleShowMore}*/}
+                        {/*loader={<div className="loader" key={0}>Loading ...</div>}*/}
+                    {/*>*/}
+                        {/*{beers}*/}
+                    {/*</InfiniteScroll>*/}
                     {beers}
                 </div>
+                <button className='showMoreBeers' onClick={this.handleShowMore}>More beers!</button>
                 <div className='loader'>Loading <span className='spinner'>.</span></div>
             </div>
 
         )
     }
 }
+

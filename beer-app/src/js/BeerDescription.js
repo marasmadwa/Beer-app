@@ -1,7 +1,9 @@
 import React from "react";
 
+
 export default class BeerDescription extends React.Component {
     render() {
+
         return this.props.isOpen && (
             <div className='beerDescription'>
                 <img className='beerImage' src={this.props.img}/>
@@ -15,7 +17,8 @@ export default class BeerDescription extends React.Component {
                         <span>Ph: <p>{this.props.ph}</p> </span>
                     </div>
                     <span className="description">{this.props.description}</span>
-                    <span className='foodPairing'>&#10003; Best served with:
+                    <span className='foodPairing'>
+                        <p>&#10003; Best served with:</p>
                         <ul className='foodPairingList'>
                             <li><p>&#127866; {this.props.food_pairing[0]}</p></li>
                             <li><p>&#127866; {this.props.food_pairing[1]}</p></li>
