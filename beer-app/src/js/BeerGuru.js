@@ -96,9 +96,9 @@ export default class BeerGuru extends React.Component {
                         {/*{beers}*/}
                     {/*</InfiniteScroll>*/}
                     {beers}
+                    <div className='loader'>Loading <span className='spinner'>.</span></div>
                 </div>
-                <button className='showMoreBeers' onClick={this.handleShowMore}>More beers!</button>
-                <div className='loader'>Loading <span className='spinner'>.</span></div>
+                <button className='showMoreBeers' onClick={this.handleShowMore}>More beers!<span>))</span></button>
             </div>
 
         )
