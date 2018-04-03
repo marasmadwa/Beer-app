@@ -11,3 +11,7 @@ and run App by typing:
 `npm start`
 
 The app is ready to go ! :)
+
+### Project preview:
+
+![alt text](https://github.com/marasmadwa/Beer-app/blob/master/beer-app/src/images/pagelayout.png)
