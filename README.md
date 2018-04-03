@@ -1,16 +1,13 @@
-# Beer-app
+Beer-app
+This app will help you find the beer you like. The app use API : https://punkapi.com/documentation/v2.
 
-This app will help you to find the beer you like. The app use API : https://punkapi.com/documentation/v2
+Installation
+Run console and install dependecies by typing command below in second beer-app directory:
 
-## Instalation
-
-To install type this command: 
-
-`npm install`
+npm install
 
 and run App by typing:
 
-`npm start`
+npm start
 
-
-## The App will be ready soon! :)
+The app is ready to go ! :)

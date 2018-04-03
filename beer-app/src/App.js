@@ -1,5 +1,5 @@
 import React from 'react';
-import BeerGuru from './js/BeerGuru.js'
+import BeerGuru from './js/BeerApp.js'
 
 
 export default class App extends React.Component {

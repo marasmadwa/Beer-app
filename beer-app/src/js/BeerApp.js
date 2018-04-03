@@ -85,7 +85,7 @@ export default class BeerGuru extends React.Component {
         return (
             <div className='beerBox'>
                 <div className='beerGuruTitle'>
-                    <h1><span className='beerWord'>BEER</span><span className='guruWord'>GURU</span></h1>
+                    <h1><span className='beerWord'>BEER</span><span className='guruWord'>APP</span></h1>
                 </div>
                 <div className='row'>
                     {/*<InfiniteScroll*/}
